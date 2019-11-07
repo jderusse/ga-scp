@@ -1,0 +1,27 @@
+name: 'SCP Transfer Files'
+description: 'Transfer Files to remote ussing scp'
+author: 'Jérémy Derussé <jeremy@derusse.com>'
+
+inputs:
+  host:
+    description: 'ssh remote host'
+  port:
+    description: 'ssh remote port'
+    default: 22
+  username:
+    description: 'ssh username'
+    default: root
+  private_key:
+    description: 'content of ssh private key. ex raw content of ~/.ssh/id_rsa'
+  source:
+    description: 'path to local entry'
+  target:
+    description: 'path to remote entry'
+
+runs:
+  using: 'docker'
+  image: 'docker://jderusse/ga-scp:latest'
+
+branding:
+  icon: 'terminal'
+  color: 'orange'
